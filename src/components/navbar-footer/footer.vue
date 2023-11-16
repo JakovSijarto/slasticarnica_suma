@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-red">
+    <div class="bg-[red]">
         FOOTER
     </div>
 </template>
