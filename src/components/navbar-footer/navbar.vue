@@ -8,8 +8,8 @@
             <li class="cursor-pointer"><router-link to="/kolacinakomad">KOLAČI NA KOMAD</router-link></li>
             <li class="cursor-pointer"><router-link to="/poklonkutije">ŠUMA POKLON KUTIJE</router-link></li>
             <li class="cursor-pointer"><router-link to="/kontakt">KONTAKT</router-link></li>
-            <li class="flex items-center gap-[0.5em] cursor-pointer"><span><img src="../../assets/cart-navbar.svg" alt="" class="w-[20px] h-[20px] object-cover"></span><router-link to="/korpa">KORPA</router-link></li>
-        </ul>
+            <li class="flex items-center gap-[0.5em] cursor-pointer"><span><img src="../../assets/cart-navbar.svg" alt="" class="w-[20px] h-[20px] object-cover"></span><router-link to="/korpa" class="flex gap-[5px]">KORPA <div v-if="store.cart.length > 0" class="text-[13px] relative bottom-[10px] rounded-[50%] p-1 text-[white] bg-[red]">{{ store.cart.length }}</div> </router-link></li>
+          </ul>
         </div>
        <div class="fixed w-full bg-white h-[69px] flex items-center min-[1025px]:hidden">
         <div class="hamb_menu z-[999] ml-8">
@@ -26,7 +26,7 @@
             <div class=""><router-link to="/kolacinakomad">KOLAČI NA KOMAD</router-link></div>
             <div class=""><router-link to="/poklonkutije">ŠUMA POKLON KUTIJE</router-link></div>
             <div class=""><router-link to="/kontakt">KONTAKT</router-link></div>
-            <div class="flex gap-[1em]"><span><img src="../../assets/cart-navbar.svg" alt="" class="w-[20px] h-[20px] object-cover"></span><router-link to="/korpa">KORPA</router-link></div>
+            <div class="flex gap-[1em]"><span><img src="../../assets/cart-navbar.svg" alt="" class="w-[20px] h-[20px] object-cover"></span><router-link to="/korpa" class="flex gap-[5px]">KORPA <div v-if="store.cart.length > 0" class="text-[13px] relative bottom-[10px] rounded-[50%] p-1 text-[white] bg-[red] px-[7px]">{{ store.cart.length }}</div></router-link></div>
         </div>
         <div class="absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[999]">
         <img src="../../assets/logo.png" alt="" class="h-[25px] ">
@@ -34,7 +34,13 @@
        </div>
     </div>
 </template>
+<script setup>
+import { useRouter } from "vue-router"
+import { useProductsStore } from "../../store/products_kolaci";
 
+const router = useRouter()
+const store = useProductsStore()
+</script>
 <script>
 export default {
   data() {

@@ -41,199 +41,140 @@
       <p class="font-light text-[15px] leading-[27px] text-[#989898]">Jedini sastojak koji stiže pripremljen u Šumu je čokolada. Njoj ne možemo da odolimo, ali je zato nabavljamo od jednog od najboljih proizvođača čokolade na svetu, belgijske firme Callebaut. Koristimo čokoladu bez šećera, zaslađenu šećernim alkoholima, mlečnu, belu i tamnu, koju mešamo sa voćem, lekovitim biljem i orašastim plodovima. Izbegavamo beli, rafinisani šećer i umesto njega koristimo voće, ječmeni slad, kokosov šećer ili čokoladu koja je zaslađena šećernim alkoholima.<br> <br>  Ove namirnice imaju niži glikemijski indeks od šećera i svakako veću hranljivost. Šuma ne prati nijednu poslastičarsku školu, već sami smišljamo svoje recepte. Biramo sastojke čijom kombinacijom se smanjuje glikemijski indeks, povećava udeo vlakana, dodaju hranljive masnoće i vitamini svežeg voća i povrća. Kada kombinujemo ukuse, inspiraciju tražimo u prirodi, koju zajedno dobro poznajemo.</p>
     </div>
     <hr class="w-[1350px] mb-[40px] h-[2px] bg-[#ebebeb] max-[1400px]:w-full">
-    <swiper
-    :spaceBetween="30"
-    :centeredSlides="true"
-    :autoplay="{
-      delay: 2500,
-      disableOnInteraction: false,
-    }"
-    :pagination="{
-      clickable: true,
-    }"
-    :navigation="true"
-    :modules="modules"
-    @autoplayTimeLeft="onAutoplayTimeLeft"
-    class="mySwiper"
-  >
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car1.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car2.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car3.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car4.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car5.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car6.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car7.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car8.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car9.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car10.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car11.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car12.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car13.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car14.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car15.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car16.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car17.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car18.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car19.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car20.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
-  <SwiperSlide>
-    <img src="../assets/home/home_carousel/img_car21.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
-  </SwiperSlide>
+    <div>
+    <!-- Fullscreen Gallery -->
+    <div v-if="fullscreenImage" class="fullscreen-gallery">
+      <button @click="navigateFullscreen(-1)" class="nav-button left-button">Previous</button>
+      <img :src="`/slasticarnica_suma/home_carousel/${fullscreenImage}`" alt="">
+      <button @click="navigateFullscreen(1)" class="nav-button right-button">Next</button>
+      <button @click="closeFullscreen" class="close-button">Close</button>
+    </div>
 
-    <template #container-end>
-      <div class="autoplay-progress">
-        <svg viewBox="0 0 48 48" ref="progressCircle">
-          <circle cx="24" cy="24" r="20"></circle>
-        </svg>
-        <span ref="progressContent"></span>
+    <!-- Original Gallery -->
+    <div>
+      <swiper
+        @swiperSlideChange="onSlideChange"
+        class="w-full flex justify-center items-center my-4"
+      >
+      <div class="flex flex-wrap justify-center gap-[1em]">
+
+      
+        <swiper-slide v-for="(image, index) in images" :key="index" @click="openFullscreen(index)" class="flex justify-center">
+            <img :src="`/slasticarnica_suma/home_carousel/${image}`" alt="" loading="lazy" class="w-[400px] h-[400px] object-cover max-[430px]:w-[90%]">
+        </swiper-slide>
       </div>
-    </template>
-  </swiper>
-    
+      </swiper>
+    </div>
+  </div>
   </div>
 </template>
 <script>
-  import { ref } from 'vue';
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
+import { ref } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
-  // Import Swiper styles
-  import 'swiper/css';
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const images = [
+      "img_car1.jpg",
+      "img_car2.jpg",
+      "img_car3.jpg",
+      "img_car4.jpg",
+      "img_car5.jpg",
+      "img_car6.jpg",
+      "img_car7.jpg",
+      "img_car8.jpg",
+      "img_car9.jpg",
+      "img_car10.jpg",
+      "img_car11.jpg",
+      "img_car12.jpg",
+      "img_car13.jpg",
+      "img_car14.jpg",
+      "img_car15.jpg",
+      "img_car16.jpg",
+      "img_car17.jpg",
+      "img_car18.jpg",
+      "img_car19.jpg",
+      "img_car20.jpg",
+      "img_car21.jpg"
+    ];
+    const fullscreenImage = ref(null);
+    const fullscreenIndex = ref(0);
 
-  import 'swiper/css/pagination';
-  import 'swiper/css/navigation';
+    const onSlideChange = (swiper) => {
+      fullscreenIndex.value = swiper.activeIndex;
+};
 
+const openFullscreen = (index) => {
+  fullscreenIndex.value = index;
+  fullscreenImage.value = images[index];
+};
 
-  // import required modules
-  import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+const closeFullscreen = () => {
+  fullscreenImage.value = null;
+};
+const navigateFullscreen = (direction) => {
+      const newIndex = (fullscreenIndex.value + direction + images.length) % images.length;
+      fullscreenIndex.value = newIndex;
+      fullscreenImage.value = images[newIndex];
+    };
 
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
-    setup() {
-      const progressCircle = ref(null);
-      const progressContent = ref(null);
-      const onAutoplayTimeLeft = (s, time, progress) => {
-        progressCircle.value.style.setProperty('--progress', 1 - progress);
-        progressContent.value.textContent = `${Math.ceil(time / 1000)}s`;
-      };
-      return {
-        onAutoplayTimeLeft,
-        progressCircle,
-        progressContent,
-        modules: [Autoplay, Pagination, Navigation],
-      };
-    },
-  };
+return { fullscreenImage, images, onSlideChange, openFullscreen, closeFullscreen, navigateFullscreen };
+  },
+};
 </script>
 
 
 <style scoped>
-@media only screen and (max-width: 1200px) {
-  .swiper {
-  width: 95% !important;
-}
-}
-@media only screen and (max-width: 500px) {
-  .swiper {
-    height: 400px !important;
-}
-}
-.swiper {
-  width: 50%;
-  height: 600px;
-  margin-bottom: 8em;
-  margin-top: 2em;
-}
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.autoplay-progress {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  z-index: 10;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: var(--swiper-theme-color);
-}
-
-.autoplay-progress svg {
-  --progress: 0;
-  position: absolute;
+.fullscreen-gallery {
+  position: fixed;
+  top: 0;
   left: 0;
-  top: 0px;
-  z-index: 10;
   width: 100%;
   height: 100%;
-  stroke-width: 4px;
-  stroke: var(--swiper-theme-color);
-  fill: none;
-  stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
-  stroke-dasharray: 125.6;
-  transform: rotate(-90deg);
+  background-color: #000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.fullscreen-gallery img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.fullscreen-gallery .nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.fullscreen-gallery .left-button {
+  left: 10px;
+}
+
+.fullscreen-gallery .right-button {
+  right: 10px;
+}
+
+.fullscreen-gallery .close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
 
 </style>
