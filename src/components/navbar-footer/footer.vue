@@ -11,9 +11,9 @@
                 <div class="flex flex-col justify-center">
                     <p class="mb-[27px] text-[19px] text-[#fff] tracking-[0.1em] max-[600px]:mb-[17px]">KAKO DO NAS</p>
                     <p class="my-[10px]">Simina 22a, Beograd</p>
-                    <p class="mt-[10px]"><a href="#" class="underline">+381 64 57 50 149</a></p>
-                    <p class="mb-[10px]"><a href="#" class="underline">+381 64 33 666 88</a></p>
-                    <p class="my-[10px]"><a href="#" class="underline">poslasticarnicasuma@gmail.com</a></p>
+                    <p class="mt-[10px]"><a href="tel:+381645750149" class="underline">+381 64 57 50 149</a></p>
+                    <p class="mb-[10px]"><a href="tel:+381643366688" class="underline">+381 64 33 666 88</a></p>
+                    <p class="my-[10px]"><a href="mailto:poslasticarnicasuma@gmail.com?subject=subject&cc=poslasticarnicasuma@gmail.com" target="_blank" class="underline">poslasticarnicasuma@gmail.com</a></p>
                 </div>
             </div>
         </div>
@@ -23,9 +23,9 @@
                 Copyright ©2023 Designed by<a href="https://agencycroatia.com/#/" class="pl-[5px] font-bold">NewAge</a>
                 </div>
                 <div class="text-white flex items-center gap-[2em]">
-                    <a href=""><img src="../../assets/footer-icons/facebook-icon.svg" alt="" class="h-[30px]"></a>
-                    <a href=""><img src="../../assets/footer-icons/instagram-icon.svg" alt="" class="h-[30px]"></a> 
-                    <a href=""><img src="../../assets/footer-icons/trip-advisor-svgrepo-com.svg" alt="" class="h-[30px]"></a> 
+                    <a href="https://www.facebook.com/poslasticarnicasuma/" target="_blank"><img src="../../assets/footer-icons/facebook-icon.svg" alt="" class="h-[30px]"></a>
+                    <a href="https://www.instagram.com/poslasticarnicasuma/" target="_blank"><img src="../../assets/footer-icons/instagram-icon.svg" alt="" class="h-[30px]"></a> 
+                    <a href="https://www.tripadvisor.com/Restaurant_Review-g294472-d14150530-Reviews-Dessert_and_pastry_shop_Forest-Belgrade.html" target="_blank"><img src="../../assets/footer-icons/trip-advisor-svgrepo-com.svg" alt="" class="h-[30px]"></a> 
                 </div>
             </div>
             
